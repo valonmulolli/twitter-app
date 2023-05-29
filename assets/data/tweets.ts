@@ -3,15 +3,15 @@ const tweets = [
     id: 't0',
     user: {
       id: 'u1',
-      username: 'VadimNotJustDev',
-      name: 'Vadim',
+      username: 'Troy1',
+      name: 'Troy',
       image:
-        'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/vadim.png',
+        'https://images.unsplash.com/photo-1500916434205-0c77489c6cf7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80',
     },
     createdAt: '2020-08-27T12:00:00.000Z',
     content: 'Can you please check if the Subscribe button on Youtube works?',
     image:
-      'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/images/thumbnail.png',
+      'https://images.unsplash.com/photo-1569038777837-5ee2b3ede1c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=735&q=80',
     numberOfComments: 123,
     numberOfRetweets: 11,
     numberOfLikes: 10,
@@ -38,13 +38,13 @@ const tweets = [
     createdAt: '2023-04-27T19:45:00.000Z',
     user: {
       id: '987654321',
-      name: 'Zuck',
-      username: 'zuck',
+      name: 'Miep',
+      username: 'Miep',
       image:
-        'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/zuck.jpeg',
+        'https://images.unsplash.com/photo-1614644147798-f8c0fc9da7f6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80',
     },
-    content: 'Had an amazing surf session this morning',
-    image: 'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/images/8.jpg',
+    content: 'Waiting for my train',
+    image: 'https://images.unsplash.com/photo-1511820377299-7f87b34ce70f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80',
     numberOfComments: 10,
     numberOfRetweets: 20,
     numberOfLikes: 100,
@@ -58,7 +58,7 @@ const tweets = [
       name: 'Jane Smith',
       username: 'janesmith',
       image:
-        'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/6.png',
+        'https://images.unsplash.com/photo-1562514947-bf9cf8e45d4a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80',
     },
     content:
       'Excited to announce that I will be speaking at the upcoming tech conference in San Francisco! 🎉 #womenintech',
@@ -71,16 +71,18 @@ const tweets = [
     id: 't1',
     user: {
       id: 'u1',
-      username: 'VadimNotJustDev',
-      name: 'Vadim',
+      username: 'Harpersurfs',
+      name: 'Harper',
       image:
-        'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/vadim.png',
+        'https://images.unsplash.com/photo-1581182830442-e8bc7babbf15?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
     },
     createdAt: '2020-08-27T12:00:00.000Z',
     content:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+      "Had an amazing surf session this morning.",
     image:
-      'https://i.insider.com/5d03aa8e6fc9201bc7002b43?width=1136&format=jpeg',
+      'https://images.unsplash.com/photo-1606945711379-e15c0fcc982b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80',
+      
+      
     numberOfComments: 123,
     numberOfRetweets: 11,
     numberOfLikes: 10,
@@ -89,10 +91,10 @@ const tweets = [
     id: 't2',
     user: {
       id: 'u1',
-      username: 'VadimNotJustDev',
-      name: 'Vadim',
+      username: 'Veraz',
+      name: 'Vera',
       image:
-        'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/vadim.png',
+        'https://images.unsplash.com/photo-1610857686540-c510d807d838?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MTF8OTk3MDQzNzZ8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
     },
     createdAt: '2020-08-27T12:00:00.000Z',
     content:
@@ -105,13 +107,13 @@ const tweets = [
     id: 't3',
     user: {
       id: 'u1',
-      username: 'VadimNotJustDev',
-      name: 'Vadim',
+      username: 'Hope',
+      name: 'Hope',
       image:
-        'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/vadim.png',
+        'https://images.unsplash.com/photo-1639495807560-a7a1fa5906a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80',
     },
     createdAt: '2020-08-27T12:00:00.000Z',
-    content: 'Hello World',
+    content: 'Hi there',
     numberOfComments: 4,
     numberOfRetweets: 11,
     numberOfLikes: 99,
@@ -120,10 +122,10 @@ const tweets = [
     id: 't4',
     user: {
       id: 'u1',
-      username: 'VadimNotJustDev',
-      name: 'Vadim',
+      username: 'Elliocodes',
+      name: 'Elliot',
       image:
-        'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/vadim.png',
+        'https://images.unsplash.com/photo-1585150266154-5cc2f96bb9eb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=701&q=80',
     },
     createdAt: '2020-08-27T12:00:00.000Z',
     content:
