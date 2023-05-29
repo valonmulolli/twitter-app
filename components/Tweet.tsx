@@ -1,9 +1,12 @@
 import React from 'react';
-import { View, Text, Image,StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet } from 'react-native';
+import { TweetType } from '../types';
 
-const Tweet = ({tweet}) => {
+type TweetProps = {
+	tweet: TweetType;
+};
 
- 
+const Tweet = ({ tweet }: TweetProps) => {
 	return (
 		<View style={styles.container}>
 			<Image src={tweet.user.image} style={styles.userimage} />
@@ -21,25 +24,24 @@ const styles = StyleSheet.create({
 		padding: 10,
 		borderBottomWidth: 1,
 		borderColor: 'lightgrey',
-    backgroundColor: '#fff',
-
+		backgroundColor: '#fff',
 	},
 	userimage: {
 		width: 50,
 		height: 50,
 		borderRadius: 50,
 	},
-  mainContainer: {
-    marginLeft: 10,
+	mainContainer: {
+		marginLeft: 10,
 		flex: 1,
-  },
+	},
 	name: {
 		fontWeight: '600',
 	},
 	content: {
 		lineHeight: 20,
 		marginTop: 5,
-	}
+	},
 });
 
 export default Tweet;
