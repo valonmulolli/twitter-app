@@ -23,13 +23,13 @@ const tweets = [
     createdAt: '2023-04-28T08:30:00.000Z',
     user: {
       id: '123456789',
-      name: 'Jeff B',
-      username: 'bezos',
+      name: 'Elon Musk',
+      username: 'elonmusk',
       image:
-        'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/jeff.jpeg',
+        'https://pbs.twimg.com/profile_images/1590968738358079488/IY9Gx6Ok_400x400.jpg',
     },
     content:
-      'Just had a great workout at the gym! 💪 #fitness #healthylifestyle',
+      'I have spaceships',
     numberOfComments: 2,
     numberOfRetweets: 5,
     numberOfLikes: 25,
