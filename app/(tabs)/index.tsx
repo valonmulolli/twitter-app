@@ -47,4 +47,3 @@ const styles = StyleSheet.create({
 		overflow: 'hidden',
 	},
 });
-// 2:53 TIME STAMP
