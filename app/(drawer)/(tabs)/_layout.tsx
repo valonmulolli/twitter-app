@@ -4,6 +4,10 @@ import { Image, Pressable, useColorScheme } from 'react-native';
 
 import Colors from '../../../constants/Colors';
 
+export const unstable_settings = {
+	initialRouteName: 'two',
+};
+
 /**
  * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
  */
@@ -15,9 +19,8 @@ function TabBarIcon(props: {
 }
 
 function AvatarHeader() {
+	const navigation = useNavigation();
 
-	const navigation = useNavigation()
-	
 	return (
 		<Pressable onPress={() => navigation.openDrawer()}>
 			<Image
@@ -37,10 +40,11 @@ export default function TabLayout() {
 				tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
 			}}
 		>
+			
 			<Tabs.Screen
-				name='index'
+				name='feed'
 				options={{
-					title: 'Tab One',
+					title: 'Feed',
 					tabBarIcon: ({ color }) => <TabBarIcon name='code' color={color} />,
 					headerRight: () => (
 						<Link href='/modal' asChild>
