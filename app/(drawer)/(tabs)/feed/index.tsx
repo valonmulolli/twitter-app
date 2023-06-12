@@ -1,16 +1,44 @@
-import { StyleSheet, View, FlatList } from 'react-native';
+import { StyleSheet, View, Text,FlatList } from 'react-native';
 import Tweet from '../../../../components/Tweet';
 import tweets from '../../../../assets/data/tweets';
 import { Entypo } from '@expo/vector-icons';
 import { Link } from 'expo-router';
+import { useEffect, useState } from 'react';
+import { ListTweets } from '../../../../lib/api/tweets';
+import { useQuery } from '@tanstack/react-query';
+import { ActivityIndicator } from 'react-native';
 
 export default function TabOneScreen() {
+
+	const {data, isLoading,error} = useQuery({
+		queryKey: ['tweets',''],
+		queryFn: ListTweets,
+	});
+
+	// const [tweet, setTweets] = useState([]);
+
+	// useEffect(() => {
+	// 	const fetchTweets = async () => {
+	// 		const res = await ListTweets();
+	// 		setTweets(res);
+	// 	};
+
+	// 	fetchTweets();
+	// }, []);
+
+	if (isLoading) {
+		return <ActivityIndicator/>
+	}
+
+	if (error) {
+		return <Text>{error.message}</Text>
+	}
+
 	return (
 		<View style={styles.page}>
 			<FlatList
-				data={tweets}
-				renderItem={({ item }) => <Tweet tweet={item} />}
-			/>
+				data={data}
+				renderItem={({ item }) => <Tweet tweet={item} />} />
 
 			<Link href='/new-tweet' asChild>
 				<Entypo
