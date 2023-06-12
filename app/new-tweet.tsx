@@ -6,9 +6,16 @@ import {
 	TextInput,
 	Pressable,
 	SafeAreaView,
+	ActivityIndicator,
 } from 'react-native';
 import { useState } from 'react';
 import { Link, useRouter } from 'expo-router';
+import {
+	QueryClient,
+	useMutation,
+	useQueryClient,
+} from '@tanstack/react-query';
+import { createTweet } from '../lib/api/tweets';
 
 const user = {
 	id: 'u1',
@@ -18,17 +25,33 @@ const user = {
 		'https://images.unsplash.com/photo-1581182830442-e8bc7babbf15?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
 };
 
-
 export default function NewTweet() {
 	const [text, setText] = useState('');
-  const router = useRouter()
+	const router = useRouter();
 
-	const onTweetPress = () => {
-		console.warn('Tweeted!',text);
+	const queryClient = useQueryClient();
 
-    setText('')
-    router.back()
-	};
+	const { mutateAsync, isLoading, isError, error } = useMutation({
+    mutationFn: createTweet,
+    onSuccess: (data) => {
+      // queryClient.invalidateQueries({ queryKey: ['tweets'] })
+      queryClient.setQueriesData(['tweets'], (existingTweets) => {
+        return [data, ...existingTweets];
+      });
+    },
+  });
+
+	const onTweetPress = async () => {
+    try {
+      await mutateAsync({ content: text });
+
+      setText('');
+      router.back();
+    } catch (e) {
+      console.log('Error:', e.message);
+    }
+  };
+
 
 	return (
 		<SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
@@ -37,7 +60,7 @@ export default function NewTweet() {
 					<Link href='../' style={{ fontSize: 18 }}>
 						Cancel
 					</Link>
-
+					{isLoading && <ActivityIndicator />}
 					<Pressable onPress={onTweetPress} style={styles.button}>
 						<Text style={styles.buttonText}>Tweet</Text>
 					</Pressable>
@@ -54,6 +77,8 @@ export default function NewTweet() {
 						style={{ flex: 1 }}
 					/>
 				</View>
+
+				{isError && <Text>Error: {error.message}</Text>}
 			</View>
 		</SafeAreaView>
 	);
