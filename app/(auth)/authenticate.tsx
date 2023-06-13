@@ -1,22 +1,33 @@
-import { View, Text, TextInput, Pressable, StyleSheet, Alert } from 'react-native';
+import {
+	View,
+	Text,
+	TextInput,
+	Pressable,
+	StyleSheet,
+	Alert,
+} from 'react-native';
 import React, { useState } from 'react';
 import { useSearchParams } from 'expo-router';
 import { authenticate } from '../../lib/api/auth';
+import { useAuth } from '../../context/AuthContext';
 
 const Authenticate = () => {
 	const [code, setCode] = useState('');
-	const { email } = useSearchParams()
+	const { email } = useSearchParams();
+
+	const { setAuthToken } = useAuth();
 
 	const onConfirm = async () => {
-    if (typeof email !== 'string') {
-      return
-    }
+		if (typeof email !== 'string') {
+			return;
+		}
 		try {
-      const res = await authenticate({email, emailToken: code});
-      console.log(res);
-    } catch (e) {
-      Alert.alert('Error', "Email code doesn't match");
-    }
+			const res = await authenticate({ email, emailToken: code });
+			console.log(res);
+			setAuthToken(res.authToken);
+		} catch (e) {
+			Alert.alert('Error', "Email code doesn't match");
+		}
 	};
 
 	return (
@@ -61,7 +72,7 @@ const styles = StyleSheet.create({
 		borderRadius: 10,
 	},
 	button: {
-		backgroundColor: '#050A12',
+		backgroundColor: '#B9DCF7',
 		height: 50,
 		alignItems: 'center',
 		justifyContent: 'center',
