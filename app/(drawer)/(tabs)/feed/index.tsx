@@ -2,28 +2,17 @@ import { StyleSheet, View, Text,FlatList } from 'react-native';
 import Tweet from '../../../../components/Tweet';
 import { Entypo } from '@expo/vector-icons';
 import { Link } from 'expo-router';
-import { useEffect, useState } from 'react';
-import { ListTweets } from '../../../../lib/api/tweets';
+import { useTweetsApi } from '../../../../lib/api/tweets';
 import { useQuery } from '@tanstack/react-query';
 import { ActivityIndicator } from 'react-native';
 
 export default function TabOneScreen() {
+	const {ListTweets} = useTweetsApi();
 
 	const {data, isLoading,error} = useQuery({
 		queryKey: ['tweets',''],
 		queryFn: ListTweets,
 	});
-
-	// const [tweet, setTweets] = useState([]);
-
-	// useEffect(() => {
-	// 	const fetchTweets = async () => {
-	// 		const res = await ListTweets();
-	// 		setTweets(res);
-	// 	};
-
-	// 	fetchTweets();
-	// }, []);
 
 	if (isLoading) {
 		return <ActivityIndicator/>

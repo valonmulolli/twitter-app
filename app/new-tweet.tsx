@@ -10,12 +10,8 @@ import {
 } from 'react-native';
 import { useState } from 'react';
 import { Link, useRouter } from 'expo-router';
-import {
-	QueryClient,
-	useMutation,
-	useQueryClient,
-} from '@tanstack/react-query';
-import { createTweet } from '../lib/api/tweets';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { useTweetsApi } from '../lib/api/tweets';
 
 const user = {
 	id: 'u1',
@@ -28,30 +24,29 @@ const user = {
 export default function NewTweet() {
 	const [text, setText] = useState('');
 	const router = useRouter();
-
+	const { createTweet } = useTweetsApi();
 	const queryClient = useQueryClient();
 
 	const { mutateAsync, isLoading, isError, error } = useMutation({
-    mutationFn: createTweet,
-    onSuccess: (data) => {
-      // queryClient.invalidateQueries({ queryKey: ['tweets'] })
-      queryClient.setQueriesData(['tweets'], (existingTweets) => {
-        return [data, ...existingTweets];
-      });
-    },
-  });
+		mutationFn: createTweet,
+		onSuccess: (data) => {
+			// queryClient.invalidateQueries({ queryKey: ['tweets'] })
+			queryClient.setQueriesData(['tweets'], (existingTweets) => {
+				return [data, ...existingTweets];
+			});
+		},
+	});
 
 	const onTweetPress = async () => {
-    try {
-      await mutateAsync({ content: text });
+		try {
+			await mutateAsync({ content: text });
 
-      setText('');
-      router.back();
-    } catch (e) {
-      console.log('Error:', e.message);
-    }
-  };
-
+			setText('');
+			router.back();
+		} catch (e) {
+			console.log('Error:', e.message);
+		}
+	};
 
 	return (
 		<SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
