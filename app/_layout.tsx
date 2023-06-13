@@ -59,7 +59,10 @@ function RootLayoutNav() {
 							options={{ title: 'New Tweet', headerShown: false }}
 						/>
 
-						<Stack.Screen name='signIn' options={{ headerShown: false }} />
+						<Stack.Screen
+							name='(auth)/signIn'
+							options={{ headerShown: false }}
+						/>
 						<Stack.Screen
 							name='(auth)/authenticate'
 							options={{ title: 'Confirm' }}

@@ -1,19 +1,33 @@
-import { View, Text, TextInput, Pressable, StyleSheet } from 'react-native';
+import {
+	View,
+	Text,
+	TextInput,
+	Pressable,
+	StyleSheet,
+	Alert,
+} from 'react-native';
 import React, { useState } from 'react';
 import { useRouter } from 'expo-router';
+import { login } from '../../lib/api/auth';
 
 const SignIn = () => {
 	const [email, setEmail] = useState('');
 	const router = useRouter();
-	const onSignIn = async () => {
-		console.log('Sing in :', email);
 
-		router.push({ pathname: '/authenticate', params: { email } });
+	const onSignIn = async () => {
+		console.warn('Sign in: ', email);
+		try {
+			await login({ email });
+			router.push({ pathname: '/authenticate', params: { email } });
+		} catch (e) {
+			Alert.alert('Error', e.message);
+		}
 	};
 
 	return (
 		<View style={styles.container}>
 			<Text style={styles.label}>Sign in or create an account</Text>
+
 			<TextInput
 				placeholder='Email'
 				value={email}
